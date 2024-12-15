@@ -1,5 +1,4 @@
 resource "aws_instance" "ec2instance" {
-  ami = "ami-055e3d4f0bbeb5878"
-  instance_type = "t2.micro"
-
+  ami = var.ec2-ami
+  instance_type = var.inst-type
 }
