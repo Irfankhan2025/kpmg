@@ -1,6 +1,11 @@
-module "consul" {
+module "ec2" {
   source = "github.com/Irfankhan2025/kpmg"
-  ec2-ami = "ami-0453ec754f44f9a4a"
+  ec2-ami = "ami-055e3d4f0bbeb5878"
   inst-type = "t2.micro"
-  ec2-region = "us-east-1"
+  ec2-region = "us-west-2"
+}
+
+resource "aws_eip" "lb" {
+  instance = module.ec2.instance-id
+  domain = "vpc"
 }
